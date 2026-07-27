@@ -14,7 +14,7 @@ export async function runSetup() {
   // ── Step 1 — Account ────────────────────────────────────────────────
   header(1, TOTAL, 'Account');
   say(c.grey('Create the local account that unlocks Citrine Space.\n'));
-  const username = await input({ label: 'Username', placeholder: 'e.g. mcalrifle' });
+  const username = await input({ label: 'Username', placeholder: 'e.g. Joseph' });
   header(1, TOTAL, 'Account');
   say(c.green('✓ ') + c.grey('Username: ') + c.white(username) + '\n');
   const password = await input({ label: 'Password', mask: true, allowToggle: true, placeholder: 'choose a password' });

@@ -65,7 +65,10 @@ async function startApp() {
   const mode = built ? 'preview' : 'dev';
   banner();
   console.log('  ' + c.green('Starting gateway and opening Citrine Space…') + c.dim(`  (${mode})`) + '\n');
-  const child = spawn(ev, [mode], { cwd: ROOT, stdio: 'inherit', shell: process.platform === 'win32' });
+  // Launch electron-vite via the shell (needed for the .cmd shim on Windows). The command
+  // path can contain spaces (…\Terminal GUIs\…), so quote it and inline the mode — passing
+  // an args array with shell:true would leave the path unquoted and split on the space.
+  const child = spawn(`"${ev}" ${mode}`, { cwd: ROOT, stdio: 'inherit', shell: true });
   child.on('exit', (code) => process.exit(code || 0));
 }
 

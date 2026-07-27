@@ -1,0 +1,42 @@
+{
+  "name": "citrine-space",
+  "version": "1.0.0",
+  "description": "Citrine Space — a local-first personal AI agent desktop app. Bring your own keys, use any model.",
+  "author": "Citrine Space",
+  "license": "MIT",
+  "type": "module",
+  "main": "out/main/index.js",
+  "bin": {
+    "citrine": "bin/citrine.mjs"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "start": "electron-vite preview",
+    "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
+    "typecheck:web": "tsc -p tsconfig.web.json --noEmit",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "setup": "node bin/citrine.mjs s setup",
+    "s": "node bin/citrine.mjs s",
+    "test:core": "node --test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.3.1",
+    "electron-vite": "^2.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "allowScripts": {
+    "electron@33.4.11": true,
+    "esbuild@0.21.5": true
+  }
+}

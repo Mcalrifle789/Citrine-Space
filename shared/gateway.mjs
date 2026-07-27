@@ -1,6 +1,6 @@
 // Citrine Space — local gateway. A tiny HTTP server on 127.0.0.1 that owns the config
 // and secrets and proxies provider calls, so API keys never reach the renderer. Started
-// by the Electron main process; `citrine s` boots the app which boots this.
+// by the Electron main process; `citrine space` boots the app which boots this.
 //
 // Security: binds to loopback only and requires a bearer token minted at startup and
 // handed to the renderer through the preload bridge. No dependencies beyond node stdlib.

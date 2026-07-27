@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Citrine Space launcher.
-//   citrine s          → start the gateway + open the Citrine Space app
-//   citrine s setup    → run the 5-step setup wizard
-//   citrine s --help    → usage
+//   citrine space          → start the gateway + open the Citrine Space app
+//   citrine space setup    → run the 5-step setup wizard
+//   citrine space --help    → usage
 //
 // The gateway itself lives in the Electron main process; launching the app starts it.
 
@@ -16,8 +16,8 @@ import { isConfigured, paths } from '../shared/config.mjs';
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const argv = process.argv.slice(2);
 
-// Accept both `citrine s ...` and (when invoked via npm script) `citrine ...`.
-const args = argv[0] === 's' ? argv.slice(1) : argv;
+// Accept `citrine space ...` (and, for convenience, a bare `citrine ...` via npm scripts).
+const args = argv[0] === 'space' ? argv.slice(1) : argv;
 const cmd = args[0] || 'start';
 
 function banner() {
@@ -27,9 +27,9 @@ function banner() {
 function usage() {
   banner();
   console.log('  ' + c.white('Usage:'));
-  console.log('    ' + c.glow('citrine s setup') + c.grey('   Configure account, providers, search & audio'));
-  console.log('    ' + c.glow('citrine s') + c.grey('         Start the gateway and open the app'));
-  console.log('    ' + c.glow('citrine s --help') + c.grey('   Show this help'));
+  console.log('    ' + c.glow('citrine space setup') + c.grey('   Configure account, providers, search & audio'));
+  console.log('    ' + c.glow('citrine space') + c.grey('         Start the gateway and open the app'));
+  console.log('    ' + c.glow('citrine space --help') + c.grey('   Show this help'));
   console.log('');
 }
 
@@ -48,7 +48,7 @@ async function startApp() {
   if (!isConfigured()) {
     banner();
     console.log('  ' + c.amber('No configuration found yet.'));
-    console.log('  Run ' + c.glow('citrine s setup') + ' first to add your account and provider keys.\n');
+    console.log('  Run ' + c.glow('citrine space setup') + ' first to add your account and provider keys.\n');
     console.log('  ' + c.dim('Config will be stored at ' + paths().dir) + '\n');
     process.exit(1);
   }

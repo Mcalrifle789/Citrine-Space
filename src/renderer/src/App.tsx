@@ -39,7 +39,7 @@ export default function App() {
   useEffect(() => {
     (async () => {
       const boot = await initApi();
-      if (!boot.ok) { setBootError('Gateway not reachable. Launch with `citrine s`.'); return; }
+      if (!boot.ok) { setBootError('Gateway not reachable. Launch with `citrine space`.'); return; }
       try {
         const c = await refreshConfig();
         const tId = c.settings.theme || 'deep-space';

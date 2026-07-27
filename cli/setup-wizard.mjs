@@ -1,4 +1,4 @@
-// Citrine Space — `citrine s setup`. A guided 5-step wizard: account, API providers,
+// Citrine Space — `citrine space setup`. A guided 5-step wizard: account, API providers,
 // search providers, audio MCPs, finish. Arrow keys navigate; the focused option glows white.
 
 import { header, menu, input, say, pause, c } from './tui.mjs';
@@ -93,7 +93,7 @@ export async function runSetup() {
   say(c.grey('Providers: ') + c.white(String(nProv)) + c.dim(`  (${Object.values(cfg.providers).map((p) => p.name).join(', ')})`));
   say(c.grey('Search:    ') + c.white(String(nSearch)));
   say(c.grey('Audio MCP: ') + c.white(String(nAudio)));
-  say('\n' + c.cyan('Launch the app with ') + c.glow('citrine s') + c.cyan('.'));
+  say('\n' + c.cyan('Launch the app with ') + c.glow('citrine space') + c.cyan('.'));
   await pause('Press enter to close setup');
   process.stdout.write('\n');
 }

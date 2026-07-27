@@ -16,8 +16,8 @@
     "typecheck:node": "tsc -p tsconfig.node.json --noEmit",
     "typecheck:web": "tsc -p tsconfig.web.json --noEmit",
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
-    "setup": "node bin/citrine.mjs s setup",
-    "s": "node bin/citrine.mjs s",
+    "setup": "node bin/citrine.mjs space setup",
+    "space": "node bin/citrine.mjs space",
     "test:core": "node --test"
   },
   "devDependencies": {

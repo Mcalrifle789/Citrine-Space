@@ -13,9 +13,9 @@ that holds your keys so they never reach the UI layer.
 
 ```bash
 npm install          # installs Electron, Vite, React (approve electron & esbuild scripts if prompted)
-npm run setup        # or: node bin/citrine.mjs s setup   → 5-step wizard
+npm run setup        # or: node bin/citrine.mjs space setup   → 5-step wizard
 npm run build        # bundle main + preload + renderer
-npm run s            # or: node bin/citrine.mjs s          → launch the app
+npm run space        # or: node bin/citrine.mjs space          → launch the app
 ```
 
 During development you can skip the build and run with hot reload:
@@ -24,9 +24,9 @@ During development you can skip the build and run with hot reload:
 npm run dev
 ```
 
-## The `citrine s` command
+## The `citrine space` command
 
-- **`citrine s setup`** — a guided 5-step terminal wizard. Arrow keys navigate; the focused
+- **`citrine space setup`** — a guided 5-step terminal wizard. Arrow keys navigate; the focused
   option glows white; `Tab` toggles password visibility.
   1. **Account** — username + password (stored as a scrypt hash).
   2. **API providers** — pick any of ~18 providers (OpenRouter, OpenAI, Anthropic, Google
@@ -35,9 +35,9 @@ npm run dev
   3. **Search providers** — Brave, Tavily, Exa, Serper, Perplexity, You.com.
   4. **AI music / audio MCPs** — Suno, Deepgram, ElevenLabs.
   5. **Finish** — "You're finished."
-- **`citrine s`** — starts the gateway (inside the Electron main process) and opens the app.
+- **`citrine space`** — starts the gateway (inside the Electron main process) and opens the app.
 
-To link `citrine` globally: `npm link` (then `citrine s setup` works anywhere).
+To link `citrine` globally: `npm link` (then `citrine space setup` works anywhere).
 
 ## Features
 
@@ -68,7 +68,7 @@ To link `citrine` globally: `npm link` (then `citrine s setup` works anywhere).
 ## Project layout
 
 ```
-bin/citrine.mjs          # CLI launcher (citrine s / citrine s setup)
+bin/citrine.mjs          # CLI launcher (citrine space / citrine space setup)
 cli/                     # zero-dep terminal UI + 5-step setup wizard
 shared/                  # catalog, pricing, config+crypto, provider client, gateway (ESM)
 src/main/                # Electron main — boots gateway, creates window
@@ -85,7 +85,7 @@ docs/superpowers/specs/  # design document
 | `npm run setup` | Run the setup wizard |
 | `npm run dev` | Dev mode with hot reload |
 | `npm run build` | Production bundle |
-| `npm run s` | Launch the built app |
+| `npm run space` | Launch the built app |
 | `npm run typecheck` | Type-check main + renderer |
 | `npm run test:core` | Headless backend tests |
 

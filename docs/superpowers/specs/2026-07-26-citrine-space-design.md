@@ -2,10 +2,10 @@
 
 ## Goal
 A local-first personal AI agent desktop app (a Citrine variant). Bring-your-own-keys; use any
-model from any configured provider. Launched by `citrine s`, configured by `citrine s setup`.
+model from any configured provider. Launched by `citrine space`, configured by `citrine space setup`.
 
 ## Scope decision
-The full spec spans several subsystems. v1 is a **runnable vertical slice**: `citrine s`
+The full spec spans several subsystems. v1 is a **runnable vertical slice**: `citrine space`
 launches the app; the 5-step setup wizard works; real providers connect; models list newest→
 oldest with per-million pricing; real streaming chat with a thinking indicator; `/themes`,
 `/model`, `/MCP`, `/agent-x` popups; MCP + Agent bookshelves; drag-drop; magnetic buttons.
@@ -19,7 +19,7 @@ generation, image generation, Backgrounds Plus payment.
   config and secrets; proxies provider calls (models + streaming chat via SSE). Binds to
   127.0.0.1 and requires a per-launch bearer token given to the renderer through preload.
   Keys never reach the renderer.
-- **CLI** (`bin/citrine.mjs`) — plain Node, no build step. `s` launches the app; `s setup` runs
+- **CLI** (`bin/citrine.mjs`) — plain Node, no build step. `space` launches the app; `space setup` runs
   a raw-mode arrow-key wizard (focused option glows white; Tab toggles password visibility).
 - **shared/** ESM modules imported by both the bundled main process and the CLI:
   `catalog` (providers/search/audio/app-MCPs), `pricing`, `config` (store + AES-256-GCM secret

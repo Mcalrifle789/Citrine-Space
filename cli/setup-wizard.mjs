@@ -60,13 +60,30 @@ export async function runSetup() {
   // ── Step 3 — Search Providers ───────────────────────────────────────
   header(3, TOTAL, 'Search Providers');
   say(c.grey('Optional. Pick search backends the agents can use for live web results.\n'));
-  const sPicks = await menu({ multi: true, items: SEARCH_PROVIDERS.map((s) => ({ label: s.name, hint: s.keyHint })) });
+  const sPicks = await menu({ multi: true, items: SEARCH_PROVIDERS.map((s) => ({ label: s.name, hint: s.notes || s.keyHint })) });
   cfg.search = cfg.search || {};
   for (const idx of sPicks) {
     const s = SEARCH_PROVIDERS[idx];
     header(3, TOTAL, 'Search Providers');
-    const key = (await input({ label: `API key for ${s.name}`, mask: true, allowToggle: true, placeholder: s.keyHint || 'paste key' })).trim();
-    cfg.search[s.id] = { id: s.id, name: s.name, key: encryptSecret(key) };
+    say(c.cyan('◆ ') + c.white(s.name) + '\n');
+
+    let name = s.name;
+    let baseUrl = s.baseUrl || '';
+    if (s.custom) {
+      name = (await input({ label: 'Search provider name', placeholder: 'e.g. SearXNG' })).trim() || 'Custom Search';
+      header(3, TOTAL, 'Search Providers');
+      say(c.cyan('◆ ') + c.white(name) + '\n');
+      baseUrl = (await input({ label: `Endpoint / base URL for ${name}`, placeholder: 'https://…' })).trim();
+    }
+
+    let key = '';
+    if (s.noKey) {
+      key = '';
+    } else {
+      const label = s.optionalKey ? `API key for ${name}  (optional — press enter to skip)` : `API key for ${name}`;
+      key = (await input({ label, mask: true, allowToggle: true, placeholder: s.keyHint || 'paste key' })).trim();
+    }
+    cfg.search[s.id] = { id: s.id, name, baseUrl, key: encryptSecret(key), connected: !!s.noKey || !!key };
   }
 
   // ── Step 4 — AI Music / Audio MCPs (optional) ───────────────────────

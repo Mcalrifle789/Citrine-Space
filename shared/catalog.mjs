@@ -30,12 +30,16 @@ export const PROVIDERS = [
 ];
 
 export const SEARCH_PROVIDERS = [
-  { id: 'brave',      name: 'Brave Search',   keyHint: 'BSA...' },
-  { id: 'tavily',     name: 'Tavily',         keyHint: 'tvly-...' },
-  { id: 'exa',        name: 'Exa',            keyHint: '' },
-  { id: 'serper',     name: 'Serper',         keyHint: '' },
-  { id: 'perplexity', name: 'Perplexity',     keyHint: 'pplx-...' },
-  { id: 'you',        name: 'You.com',        keyHint: '' },
+  { id: 'brave',         name: 'Brave Search',    keyHint: 'BSA...' },
+  { id: 'tavily',        name: 'Tavily',          keyHint: 'tvly-...' },
+  { id: 'exa',           name: 'Exa',             keyHint: '' },
+  { id: 'serper',        name: 'Serper',          keyHint: '' },
+  { id: 'perplexity',    name: 'Perplexity',      keyHint: 'pplx-...' },
+  { id: 'you',           name: 'You.com',         keyHint: '' },
+  { id: 'duckduckgo',    name: 'DuckDuckGo',      keyHint: '', noKey: true,      notes: 'Free instant-answer API — no key needed.' },
+  { id: 'parallel',      name: 'Parallel',        keyHint: '',                    notes: 'Parallel.ai search API.' },
+  { id: 'parallel-free', name: 'Parallel (Free)', keyHint: '', optionalKey: true, notes: 'Free tier — API key optional.' },
+  { id: 'custom',        name: 'Custom / Other',  keyHint: '', custom: true, editableBaseUrl: true, notes: 'Any search API — name it, add the endpoint & key.' },
 ];
 
 export const AUDIO_MCPS = [

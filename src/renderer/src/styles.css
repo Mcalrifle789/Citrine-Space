@@ -94,6 +94,11 @@ body {
   color: transparent; -webkit-text-stroke: 1.5px var(--accent);
   filter: drop-shadow(var(--glow)); margin: 8px 0 2px;
 }
+.welcome .wordmark-logo {
+  display: block; width: min(560px, 90%); height: auto;
+  margin: 10px 0 4px; border-radius: 14px;
+  filter: drop-shadow(var(--glow));
+}
 .welcome .tagline { color: var(--text); font-size: 15px; margin-bottom: 6px; }
 .welcome .bullets { display: grid; gap: 6px; margin-top: 12px; }
 .welcome .bullets div::before { content: '◆ '; color: var(--accent); }

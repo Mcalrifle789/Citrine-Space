@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import logoUrl from '../assets/citrine-logo.png';
 
 export interface Message { id: string; role: 'user' | 'assistant'; content: string; streaming?: boolean; attachments?: string[]; }
 
@@ -7,7 +8,7 @@ function Welcome({ username }: { username: string }) {
     <div className="welcome">
       <div className="tagline">Citrine Space chat — your agentic AI copilot for any task, any workflow, anywhere.</div>
       <div style={{ color: 'var(--accent)' }}>{username}@citrine:~$ citrine</div>
-      <div className="wordmark">citrine</div>
+      <img className="wordmark-logo" src={logoUrl} alt="Citrine Space chat" />
       <div>Agentic AI that connects to any app and helps with any task or workflow.</div>
       <div className="bullets">
         <div>Bring your own keys — use any model from any provider.</div>
